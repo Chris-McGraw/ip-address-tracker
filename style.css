@@ -79,18 +79,31 @@ html, body {
   font-family: "Rubik", sans-serif;
   font-size: 18px;
   font-weight: 400;
+  color: hsl(0, 0%, 17%);
 
   background-color: white;
   border-radius: 14px 0 0 14px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #ip-search-input::placeholder {
   color: hsl(0, 0%, 59%);
   opacity: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #ip-search-input::-ms-input-placeholder {
   color: hsl(0, 0%, 59%);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #ip-search-button {
@@ -116,12 +129,15 @@ html, body {
   position: absolute;
   bottom: -80.5px;
 
-  width: 1110px;
+  width: 80%;
+  max-width: 1110px;
   height: 161px;
 
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px 10px rgba(0,0,0, 0.15);
+
+  overflow: hidden;
 }
 
 #ip-info-container-inner {
@@ -172,5 +188,98 @@ html, body {
   z-index: 0;
 
   width: 100%;
-  height: calc(100% - 280px);
+  height: calc(100% - 280px); /* 100% minus background img container height */
+}
+
+
+
+
+
+/* ------------------------ MEDIA QUERY WIDTH < 1400 ------------------------ */
+/* @media screen and (max-width: 1399px) {
+  .ip-info-tile {
+    padding-left: 10.8%;
+  }
+} */
+
+
+
+/* ------------------------ MEDIA QUERY WIDTH < 1100 ------------------------ */
+/* @media screen and (max-width: 1099px) {
+} */
+
+
+
+/* ------------------------ MEDIA QUERY WIDTH < 800 ------------------------ */
+@media screen and (max-width: 799px) {
+  #background-img-container {
+    height: 300px;
+  }
+
+  #main-header {
+    position: relative;
+    top: 28.8px;     /* 90% */
+
+    font-size: 27px; /* 90% */
+  }
+
+/* --- */
+
+  #ip-search-container {
+    top: 85.5px;    /* 90% */
+
+    width: 327px;
+  }
+
+/* --- */
+
+  #ip-info-container {
+    bottom: -163px;
+
+    width: 327px;
+    height: 294px;
+  }
+
+  #ip-info-container-inner {
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 0px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .ip-info-tile {
+    display: grid;
+    justify-content: center;
+
+    padding-right: 30px;
+  }
+
+  .ip-info-tile h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    top: 0px;
+
+    font-size: 9.75px;   /* 75% */
+    font-weight: 700;
+  }
+
+  .ip-info-tile p {
+    top: 0;
+
+    font-size: 19.5px;  /* 75% */
+  }
+
+/* --- */
+
+  #map-container {
+    height: calc(100% - 300px); /* 100% minus background img container height */
+  }
 }
